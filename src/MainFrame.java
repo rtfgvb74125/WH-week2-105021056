@@ -83,13 +83,15 @@ public class MainFrame extends Frame {
         });
         btnFir.addActionListener(new ActionListener() {
             @Override
+
             public void actionPerformed(ActionEvent e) {
+                cheak = true;
                 t1.start();
             }
         });
 
         //Timer control
-        t1 = new Timer(10, new ActionListener() {
+        t1 = new Timer(5, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(lbBulletY>0 && cheak){
@@ -106,12 +108,16 @@ public class MainFrame extends Frame {
                         lbGoal.setText(Integer.toString(lbGoalX)+","+Integer.toString(lbGoalY));
 
                     }
+                }else{
+                    cheak = false;
+                    lbBulletY = 240;
+                    lbBullet.setLocation(lbGunX,lbBulletY);
                 }
                 }
 
 
 
         });
-    cheak = true;
+
     }
 }
